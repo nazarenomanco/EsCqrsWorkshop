@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Topics.Radical.Windows.Presentation;
 
-namespace EsCqrsWorkshop.Messages
+namespace EsCqrsWorkshop.WpfClient.Presentation
 {
-    public class Class1
+    class MainViewModel: AbstractViewModel
     {
     }
 }

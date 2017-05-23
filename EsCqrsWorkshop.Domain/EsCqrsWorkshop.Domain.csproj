@@ -50,10 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aggregates\IPizzeriaCreata.cs" />
-    <Compile Include="Aggregates\Pizzeria.cs" />
+    <Compile Include="Pizzeria\IOrderReceived.cs" />
+    <Compile Include="Pizzeria\IOrderCompleted.cs" />
+    <Compile Include="Pizzeria\IPizzeriaCreated.cs" />
+    <Compile Include="Pizzeria\Pizzeria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObjects\Ordine.cs" />
+    <Compile Include="ValueObjects\Order.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

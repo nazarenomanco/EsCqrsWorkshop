@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{678196FC-34DC-4C6C-8788-19A1A51701E2}</ProjectGuid>
+    <ProjectGuid>{B9587F49-B1DC-4253-80D3-5DBE7B7363FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsCqrsWorkshop.Messages</RootNamespace>
-    <AssemblyName>EsCqrsWorkshop.Messages</AssemblyName>
+    <RootNamespace>EsCqrsWorkshop.Domain.Handlers</RootNamespace>
+    <AssemblyName>EsCqrsWorkshop.Domain.Handlers</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,6 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Jason, Version=0.4.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jason.0.4.0.1-Beta\lib\net40\Jason.dll</HintPath>
+    </Reference>
+    <Reference Include="Jason.Tools, Version=0.4.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jason.Tools.0.4.0.1-Beta\lib\net40\Jason.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Radical, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Radical.1.5.2.0\lib\net45\Radical.dll</HintPath>
+    </Reference>
+    <Reference Include="Radical.CQRS, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Radical.CQRS.0.2.0-unstable0028\lib\net45\Radical.CQRS.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,10 +56,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\AddOrder.cs" />
-    <Compile Include="Commands\CompleteOrder.cs" />
-    <Compile Include="Commands\CreatePizzeria.cs" />
+    <Compile Include="AddOrderHandler.cs" />
+    <Compile Include="CompleteOrderHandler.cs" />
+    <Compile Include="CreatePizzeriaHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EsCqrsWorkshop.Domain\EsCqrsWorkshop.Domain.csproj">
+      <Project>{346163F7-E3FE-42EB-9828-BB6D51E27ABA}</Project>
+      <Name>EsCqrsWorkshop.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EsCqrsWorkshop.Messages\EsCqrsWorkshop.Messages.csproj">
+      <Project>{678196fc-34dc-4c6c-8788-19a1a51701e2}</Project>
+      <Name>EsCqrsWorkshop.Messages</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
