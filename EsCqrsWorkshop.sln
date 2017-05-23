@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsCqrsWorkshop.WpfClient", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsCqrsWorkshop.Domain.Handlers", "EsCqrsWorkshop.Domain.Handlers\EsCqrsWorkshop.Domain.Handlers.csproj", "{B9587F49-B1DC-4253-80D3-5DBE7B7363FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsCqrsWorkshop.Domain.Data", "EsCqrsWorkshop.Domain.Data\EsCqrsWorkshop.Domain.Data.csproj", "{B48583A6-2383-431A-B71E-C6828A2EA8EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsCqrsWorkshop.ViewModels", "EsCqrsWorkshop.ViewModels\EsCqrsWorkshop.ViewModels.csproj", "{EA34F046-494A-4063-AE59-A0753D21209A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{B9587F49-B1DC-4253-80D3-5DBE7B7363FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9587F49-B1DC-4253-80D3-5DBE7B7363FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9587F49-B1DC-4253-80D3-5DBE7B7363FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B48583A6-2383-431A-B71E-C6828A2EA8EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B48583A6-2383-431A-B71E-C6828A2EA8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B48583A6-2383-431A-B71E-C6828A2EA8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B48583A6-2383-431A-B71E-C6828A2EA8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA34F046-494A-4063-AE59-A0753D21209A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA34F046-494A-4063-AE59-A0753D21209A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA34F046-494A-4063-AE59-A0753D21209A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA34F046-494A-4063-AE59-A0753D21209A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
