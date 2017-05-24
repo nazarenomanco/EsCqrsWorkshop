@@ -1,6 +1,6 @@
 ﻿using Radical.CQRS;
 
-namespace EsCqrsWorkshop.Domain.Pizzeria
+namespace EsCqrsWorkshop.Domain.Pizzerie
 {
     public interface IPizzeriaCreated : IDomainEvent
     {

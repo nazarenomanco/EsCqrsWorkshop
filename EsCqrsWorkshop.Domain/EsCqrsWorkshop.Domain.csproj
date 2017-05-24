@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pizzeria\IOrderReceived.cs" />
-    <Compile Include="Pizzeria\IOrderCompleted.cs" />
-    <Compile Include="Pizzeria\IPizzeriaCreated.cs" />
-    <Compile Include="Pizzeria\Pizzeria.cs" />
+    <Compile Include="Pizzerie\IOrderReceived.cs" />
+    <Compile Include="Pizzerie\IOrderCompleted.cs" />
+    <Compile Include="Pizzerie\IPizzeriaCreated.cs" />
+    <Compile Include="Pizzerie\Pizzeria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\Order.cs" />
   </ItemGroup>

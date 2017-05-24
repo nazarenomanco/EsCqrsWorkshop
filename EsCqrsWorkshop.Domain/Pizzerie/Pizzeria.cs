@@ -5,7 +5,7 @@ using EsCqrsWorkshop.Domain.ValueObjects;
 using Radical.CQRS;
 using Topics.Radical.Linq;
 
-namespace EsCqrsWorkshop.Domain.Pizzeria
+namespace EsCqrsWorkshop.Domain.Pizzerie
 {
     public class Pizzeria : Aggregate<Pizzeria.PizzeriaState>
     {

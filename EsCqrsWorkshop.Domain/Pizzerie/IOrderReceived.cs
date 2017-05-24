@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Radical.CQRS;
 
-namespace EsCqrsWorkshop.Domain.Pizzeria
+namespace EsCqrsWorkshop.Domain.Pizzerie
 {
     public interface IOrderReceived : IDomainEvent
     {
