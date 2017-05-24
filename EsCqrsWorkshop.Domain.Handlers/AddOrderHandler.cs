@@ -19,11 +19,11 @@ namespace EsCqrsWorkshop.Domain.Handlers
             using (var repository = this.RepositoryFactory.OpenSession())
             {
                 var pizzeria = repository.GetById<Pizzeria.Pizzeria>(command.PizzeriaId);
-                pizzeria.AddOrder(command.CustomerName, command.PizzaTaste);
+                var id = pizzeria.AddOrder(command.CustomerName, command.PizzaTaste);
 
                 repository.CommitChanges();
 
-                return pizzeria.Id;
+                return new {PizzeriaId = pizzeria.Id, OrderId = id};
             }
         }
     }

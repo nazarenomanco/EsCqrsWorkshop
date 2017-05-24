@@ -9,8 +9,8 @@ namespace EsCqrsWorkshop.Domain.Pizzeria
 {
     public interface IOrderReceived : IDomainEvent
     {
+        Guid OrderId { get; set; }
         string CustomerName { get; set; }
-        Guid PizzeriaId { get; set; }
         string PizzaTaste { get; set; }
     }
 }

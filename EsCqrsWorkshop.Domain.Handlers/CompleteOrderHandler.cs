@@ -20,13 +20,11 @@ namespace EsCqrsWorkshop.Domain.Handlers
             {
                 var pizzeria = repository.GetById<Pizzeria.Pizzeria>(command.PizzeriaId);
 
-
-                pizzeria.CompleteOrder(command.CustomerName, command.PizzaTaste, command.OrderCreatedAt);
+                var ids = pizzeria.CompleteOrder(command.CustomerName, command.PizzaTaste, command.OrderCreatedAt);
 
                 repository.CommitChanges();
 
-                // Cosa torno?
-                return null;
+                return new { PizzeriaId = pizzeria.Id, CompletedOrderIds = ids };
 
             }
         }
