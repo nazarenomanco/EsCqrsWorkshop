@@ -12,7 +12,7 @@ namespace EsCqrsWorkshop.Domain.Pizzerie
         public class PizzeriaState : AggregateState
         {
             public string Name { get; set; }
-            public List<Order> Orders { get; set; }
+            public ISet<Order> Orders { get; set; }
         }
 
         public class Factory
@@ -22,7 +22,7 @@ namespace EsCqrsWorkshop.Domain.Pizzerie
                 var state = new PizzeriaState()
                 {
                     Name = nome,
-                    Orders = new List<Order>()
+                    Orders = new HashSet<Order>()
                 };
                 var aggregate = new Pizzeria(state);
                 aggregate.SetupCompleted();
