@@ -4,8 +4,31 @@
         xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
         xmlns:behavior="http://schemas.topics.it/wpf/radical/windows/behaviors"
         xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
-        Title="MainView" Height="300" Width="300">
+        Title="PizzaKore" Height="307.941" Width="422.647">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Pizzeria" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Height="20" 
+                 Text="{Binding Path=NewPizzeriaName}"
+                 MaxLength="250"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Height="20" 
+                  ItemsSource="{Binding Path=Pizzerie}" 
+                  DisplayMemberPath="Name"  
+                  SelectedItem="{Binding Path=SelectedPizzeria}"/>
+        <Button Grid.Row="0" Grid.Column="2" Height="20" Width="20" 
+                Content="+" 
+                Command="{markup:AutoCommandBinding Path=CreateNewPizzeria}" />
+
     </Grid>
 </Window>

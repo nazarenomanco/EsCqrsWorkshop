@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sample.ViewModels
+namespace EsCqrsWorkshop.ViewModels
 {
     public interface IViewContextFactory<TContext> where TContext : IDisposable
     {

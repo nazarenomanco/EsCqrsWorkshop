@@ -48,12 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPeopleViewContext.cs" />
+    <Compile Include="IPizzerieViewContext.cs" />
     <Compile Include="IViewContextFactory.cs" />
-    <Compile Include="PeopleViewContext.cs" />
-    <Compile Include="PersonView.cs" />
+    <Compile Include="PizzerieViewContext.cs" />
+    <Compile Include="PizzeriaView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PeopleViewContextFactory.cs" />
+    <Compile Include="Services\PizzerieViewContextFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

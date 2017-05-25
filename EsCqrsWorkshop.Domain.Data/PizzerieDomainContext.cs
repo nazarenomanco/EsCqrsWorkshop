@@ -11,8 +11,6 @@ namespace EsCqrsWorkshop.Domain
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            Database.SetInitializer(new DatabaseInitializer());
-
             modelBuilder.Entity<Order>().ToTable("Orders");
             modelBuilder.MapPropertiesOf<Order>();
 
