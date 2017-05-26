@@ -44,6 +44,7 @@
     <Compile Include="Commands\AddOrder.cs" />
     <Compile Include="Commands\CompleteOrder.cs" />
     <Compile Include="Commands\CreatePizzeria.cs" />
+    <Compile Include="Commands\NotifyDeliveryBoy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

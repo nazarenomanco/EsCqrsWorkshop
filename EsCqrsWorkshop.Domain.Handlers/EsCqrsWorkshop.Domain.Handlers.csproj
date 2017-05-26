@@ -40,6 +40,9 @@
     <Reference Include="Jason, Version=0.4.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jason.0.4.0.1-Beta\lib\net40\Jason.dll</HintPath>
     </Reference>
+    <Reference Include="Jason.Client.InProcess, Version=0.4.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jason.Client.InProcess.0.4.0.1-Beta\lib\net40\Jason.Client.InProcess.dll</HintPath>
+    </Reference>
     <Reference Include="Jason.Tools, Version=0.4.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jason.Tools.0.4.0.1-Beta\lib\net40\Jason.Tools.dll</HintPath>
     </Reference>
@@ -68,7 +71,7 @@
     <Compile Include="CompleteOrderHandler.cs" />
     <Compile Include="ComponentModel\IHandleEvent.cs" />
     <Compile Include="CreatePizzeriaHandler.cs" />
-    <Compile Include="EventHandlers\PizzeriaCreatedHandler.cs" />
+    <Compile Include="EventHandlers\OrderCompletedHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

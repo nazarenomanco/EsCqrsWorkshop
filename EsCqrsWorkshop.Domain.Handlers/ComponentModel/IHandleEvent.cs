@@ -9,6 +9,6 @@ namespace EsCqrsWorkshop.Domain.Handlers.ComponentModel
 {
     public interface IHandleEvent<T> where T : IDomainEvent
     {
-        void Handle(T @event);
+        void Handle(T orderCompletedEvent);
     }
 }
