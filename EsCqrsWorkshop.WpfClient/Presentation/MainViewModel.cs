@@ -48,6 +48,9 @@ namespace EsCqrsWorkshop.WpfClient.Presentation
 
         async Task PopulatePizzerie()
         {
+
+            this.Pizzerie = new ObservableCollection<PizzeriaView>();
+
             using (var db = this.pizzerieViewContextFactory.Create())
             {
                 var all = await db.PizzerieView
