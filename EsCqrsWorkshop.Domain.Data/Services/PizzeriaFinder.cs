@@ -23,7 +23,14 @@ namespace EsCqrsWorkshop.Domain.Data.Services
 
         public IEnumerable<IAggregateState> FindById(DomainContext session, params AggregateQuery[] aggregateQueries)
         {
-            throw new NotImplementedException();
+            //ignoring Aggregate Version
+            var aggregateIds = aggregateQueries.Select(q => q.Id).ToArray();
+            var db = session.Set<Pizzeria.PizzeriaState>();
+            var result = db.Include(nameof(Pizzeria.PizzeriaState.Orders))
+                .Where(p => aggregateIds.Contains(p.Id))
+                .ToList();
+
+            return result;
         }
     }
 }
