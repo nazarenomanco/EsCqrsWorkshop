@@ -72,6 +72,7 @@
     <Compile Include="ComponentModel\IHandleEvent.cs" />
     <Compile Include="CreatePizzeriaHandler.cs" />
     <Compile Include="EventHandlers\OrderCompletedHandler.cs" />
+    <Compile Include="NotifyDeliveryBoyHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
