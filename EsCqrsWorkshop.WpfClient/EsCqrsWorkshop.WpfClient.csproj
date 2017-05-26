@@ -165,6 +165,10 @@
       <Project>{346163f7-e3fe-42eb-9828-bb6d51e27aba}</Project>
       <Name>EsCqrsWorkshop.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EsCqrsWorkshop.InMemoryBus\EsCqrsWorkshop.InMemoryBus.csproj">
+      <Project>{9dfc938e-3d20-4f9e-b808-d678d466ef20}</Project>
+      <Name>EsCqrsWorkshop.InMemoryBus</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EsCqrsWorkshop.Messages\EsCqrsWorkshop.Messages.csproj">
       <Project>{678196fc-34dc-4c6c-8788-19a1a51701e2}</Project>
       <Name>EsCqrsWorkshop.Messages</Name>
