@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.4.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Jason, Version=0.4.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jason.0.4.0.1-Beta\lib\net40\Jason.dll</HintPath>
     </Reference>
@@ -47,6 +53,7 @@
       <HintPath>..\packages\Radical.CQRS.0.2.0-unstable0028\lib\net45\Radical.CQRS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,8 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddOrderHandler.cs" />
+    <Compile Include="Boot\Installers\DefaultInstaller.cs" />
     <Compile Include="CompleteOrderHandler.cs" />
+    <Compile Include="ComponentModel\IHandleEvent.cs" />
     <Compile Include="CreatePizzeriaHandler.cs" />
+    <Compile Include="EventHandlers\PizzeriaCreatedHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,5 +84,6 @@
       <Name>EsCqrsWorkshop.Messages</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
