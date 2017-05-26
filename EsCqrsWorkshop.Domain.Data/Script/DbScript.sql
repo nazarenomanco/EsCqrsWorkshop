@@ -40,7 +40,7 @@ CREATE TABLE [dbo].[Pizzerie](
 
 GO
 
-USE [CqrsSample]
+USE [CqrsPizzeria]
 GO
 
 /****** Object:  Table [dbo].[DomainEventCommits]    Script Date: 26/05/2017 07:04:24 ******/
