@@ -39,6 +39,38 @@ CREATE TABLE [dbo].[Pizzerie](
 ) ON [PRIMARY]
 
 GO
+
+USE [CqrsSample]
+GO
+
+/****** Object:  Table [dbo].[DomainEventCommits]    Script Date: 26/05/2017 07:04:24 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DomainEventCommits](
+	[EventId] [uniqueidentifier] NOT NULL,
+	[AggregateId] [uniqueidentifier] NOT NULL,
+	[PublishedOn] [datetimeoffset](7) NOT NULL,
+	[TransactionId] [uniqueidentifier] NOT NULL,
+	[EventType] [nvarchar](max) NULL,
+	[EventBlob] [nvarchar](max) NULL,
+	[Version] [int] NOT NULL,
+	[StreamGroup] [nvarchar](max) NULL,
+	[IsDispatched] [bit] NOT NULL,
+ CONSTRAINT [PK_dbo.DomainEventCommits] PRIMARY KEY CLUSTERED 
+(
+	[EventId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[DomainEventCommits] ADD  DEFAULT ((0)) FOR [IsDispatched]
+GO
+
 /****** Object:  View [dbo].[PizzerieView]    Script Date: 26/05/2017 06:52:57 ******/
 SET ANSI_NULLS ON
 GO
