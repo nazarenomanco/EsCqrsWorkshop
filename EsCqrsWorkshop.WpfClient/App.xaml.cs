@@ -7,6 +7,7 @@ using System.Windows;
 using EsCqrsWorkshop.WpfClient.Presentation;
 using Topics.Radical.Windows.Presentation.Boot;
 using Topics.Radical.Windows.Presentation.Helpers;
+using EsCqrsWorkshop.InMemoryBus.Services;
 
 namespace EsCqrsWorkshop.WpfClient
 {
@@ -34,11 +35,13 @@ namespace EsCqrsWorkshop.WpfClient
                     var probeDirectory = EnvironmentHelper.GetCurrentDirectory();
                     var wrapper = (ServiceProviderWrapper)container;
 
+                    wrapper.Container.Resolve<UnreliableServiceBus>().StartPolling();
+
                     new DefaultJasonServerConfiguration(probeDirectory)
-                        {
-                            Container = new WindsorJasonContainerProxy(wrapper.Container),
-                            //TypeFilter = t => !t.Is<ShopperFallbackCommandHandler>()
-                        }
+                    {
+                        Container = new WindsorJasonContainerProxy(wrapper.Container),
+                        //TypeFilter = t => !t.Is<ShopperFallbackCommandHandler>()
+                    }
                         .AddEndpoint(new Jason.Client.JasonInProcessEndpoint())
                         .Initialize();
 

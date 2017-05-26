@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EsCqrsWorkshop.InMemoryBus
 {
-    public class EventCommitsDomainContext : DomainContext
+    class EventCommitsDomainContext : DomainContext
     {
         
     }
