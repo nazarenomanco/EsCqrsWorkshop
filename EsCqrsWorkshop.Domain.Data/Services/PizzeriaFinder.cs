@@ -15,7 +15,7 @@ namespace EsCqrsWorkshop.Domain.Data.Services
         {
             //ignoring Aggregate Version
             var db = session.Set<Pizzeria.PizzeriaState>();
-            var aggregate = db.Include(p => p.Orders)
+            var aggregate = db.Include(nameof(Pizzeria.PizzeriaState.Orders))
                 .Single(p => p.Id == aggregateQuery.Id);
 
             return aggregate;
