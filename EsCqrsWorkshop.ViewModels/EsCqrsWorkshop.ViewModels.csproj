@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="IPizzerieViewContext.cs" />
     <Compile Include="IViewContextFactory.cs" />
+    <Compile Include="OrderView.cs" />
     <Compile Include="PizzerieViewContext.cs" />
     <Compile Include="PizzeriaView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,19 +8,14 @@ namespace EsCqrsWorkshop.Messages.Commands
 {
     public class CompleteOrder
     {
-        public readonly string CustomerName;
         public readonly Guid PizzeriaId;
-        public readonly string PizzaTaste;
-        public readonly DateTime OrderCreatedAt;
+        public readonly Guid OrderId;
 
-        public CompleteOrder(Guid pizzeriaId, string customerName, string pizzaTaste, DateTime orderCreatedAt)
+        public CompleteOrder( Guid pizzeriaId, Guid orderId)
         {
-            this.CustomerName = customerName;
             this.PizzeriaId = pizzeriaId;
-            this.PizzaTaste = pizzaTaste;
-            this.OrderCreatedAt = orderCreatedAt;
+            this.OrderId = orderId;
         }
-
 
     }
 }

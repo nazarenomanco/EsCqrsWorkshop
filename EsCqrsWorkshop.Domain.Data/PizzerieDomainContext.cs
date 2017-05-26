@@ -23,7 +23,7 @@ namespace EsCqrsWorkshop.Domain
                 .WithOptional()
                 .HasForeignKey(x => x.PizzeriaId)
                 .WillCascadeOnDelete();
-            modelBuilder.MapPropertiesOf<Pizzeria.PizzeriaState>( propertiesToSkip: new[]{ "Orders" });
+            modelBuilder.MapPropertiesOf<Pizzeria.PizzeriaState>(propertiesToSkip: new[] { "Orders" });
         }
     }
 }

@@ -24,12 +24,26 @@ namespace EsCqrsWorkshop.WpfClient.Presentation
             this.clientFactory = clientFactory;
             this.pizzerieViewContextFactory = pizzerieViewContextFactory;
             this.Pizzerie = new ObservableCollection<PizzeriaView>();
+            this.Orders = new ObservableCollection<OrderView>();
 
         }
 
         public void OnViewLoaded()
         {
             this.PopulatePizzerie();
+            SetupPropertyMetadata();
+        }
+
+        private void SetupPropertyMetadata()
+        {
+            this.GetPropertyMetadata(() => this.SelectedPizzeria)
+                .OnChanged(pvc =>
+                {
+                    if (this.SelectedPizzeria != null)
+                    {
+                        this.PopulateOrders();
+                    }
+                });
         }
 
         async Task PopulatePizzerie()
@@ -65,6 +79,32 @@ namespace EsCqrsWorkshop.WpfClient.Presentation
             set { this.SetPropertyValue(() => this.NewPizzeriaName, value); }
         }
 
+        public string NewOrderCustomerName
+        {
+            get { return this.GetPropertyValue(() => this.NewOrderCustomerName); }
+            set { this.SetPropertyValue(() => this.NewOrderCustomerName, value); }
+        }
+
+        public string NewOrderPizzaTaste
+        {
+            get { return this.GetPropertyValue(() => this.NewOrderPizzaTaste); }
+            set { this.SetPropertyValue(() => this.NewOrderPizzaTaste, value); }
+        }
+
+        public ObservableCollection<OrderView> Orders
+        {
+            get { return this.GetPropertyValue(() => this.Orders); }
+            set { this.SetPropertyValue(() => this.Orders, value); }
+        }
+
+        public OrderView SelectedOrder
+        {
+            get { return this.GetPropertyValue(() => this.SelectedOrder); }
+            set { this.SetPropertyValue(() => this.SelectedOrder, value); }
+        }
+
+
+
         public void CreateNewPizzeria()
         {
 
@@ -73,9 +113,69 @@ namespace EsCqrsWorkshop.WpfClient.Presentation
 
             using (var client = this.clientFactory.CreateClient())
             {
-                var key = (Guid)client.Execute(new CreatePizzeria(this.NewPizzeriaName));
+                client.Execute(new CreatePizzeria(this.NewPizzeriaName));
             }
 
+            this.PopulatePizzerie();
+
+        }
+
+        public void AddOrder()
+        {
+            if (this.SelectedPizzeria == null)
+                return;
+
+            if (string.IsNullOrEmpty(this.NewOrderCustomerName))
+                return;
+
+            if (string.IsNullOrEmpty(this.NewOrderPizzaTaste))
+                return;
+
+            using (var client = this.clientFactory.CreateClient())
+            {
+                client.Execute(new AddOrder(this.SelectedPizzeria.PizzeriaId, this.NewOrderCustomerName, this.NewOrderPizzaTaste));
+            }
+
+            this.PopulateOrders();
+        }
+
+        public void CompleteOrder()
+        {
+            if (this.SelectedPizzeria == null)
+                return;
+
+            if (this.SelectedOrder == null)
+                return;
+
+            using (var client = this.clientFactory.CreateClient())
+            {
+                client.Execute(new CompleteOrder(this.SelectedPizzeria.PizzeriaId, this.SelectedOrder.OrderId));
+            }
+
+            this.PopulateOrders();
+        }
+
+        public void PizzeriaSelectionChanged()
+        {
+            this.PopulateOrders();
+        }
+
+        async Task PopulateOrders()
+        {
+            this.Orders = new ObservableCollection<OrderView>();
+
+            using (var db = this.pizzerieViewContextFactory.Create())
+            {
+                var all = await db.OrdersView
+                    .Where(x => x.PizzeriaId == this.SelectedPizzeria.PizzeriaId)
+                    .OrderBy(x => x.CreatedAt)
+                    .ToListAsync();
+
+                foreach (var item in all)
+                {
+                    this.Orders.Add(item);
+                }
+            }
         }
 
     }

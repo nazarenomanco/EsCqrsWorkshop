@@ -12,7 +12,7 @@ namespace EsCqrsWorkshop.Domain.Pizzerie
         public class PizzeriaState : AggregateState
         {
             public string Name { get; set; }
-            public ISet<Order> Orders { get; set; }
+            public ISet<Order> Orders { get; set; } = new HashSet<Order>();
         }
 
         public class Factory
@@ -61,25 +61,22 @@ namespace EsCqrsWorkshop.Domain.Pizzerie
 
         }
 
-        public IEnumerable<Guid> CompleteOrder(string customerName, string pizzaTaste, DateTime orderCreatedAt)
+        public Guid CompleteOrder(Guid pizzeriaId, Guid orderId)
         {
-            if (customerName == null) throw new ArgumentNullException(nameof(customerName));
-            if (pizzaTaste == null) throw new ArgumentNullException(nameof(pizzaTaste));
+            if (orderId == null) throw new ArgumentNullException(nameof(orderId));
 
-            var orders = this.Data.Orders.Where(x => x.CustomerName == customerName && x.PizzaTaste == pizzaTaste && x.CreatedAt == orderCreatedAt).ToArray();
-            for (int i = orders.Length-1; i >= 0; i--)
-            {
-                this.Data.Orders.Remove(orders[i]);
-            }
+            var order = this.Data.Orders.Single(x => x.Id == orderId);
+            this.Data.Orders.Remove(order);
 
             this.RaiseEvent<IOrderCompleted>(e =>
             {
-                e.CustomerName = customerName;
-                e.PizzaTaste = pizzaTaste;
-                e.OrderIds = orders.Select(x => x.Id).ToArray();
+                e.PizzeriaId = pizzeriaId;
+                e.OrderId = order.Id;
+                e.CustomerName = order.CustomerName;
+                e.PizzaTaste = order.CustomerName;
             });
 
-            return orders.Select(x => x.Id);
+            return order.Id;
 
         }
 

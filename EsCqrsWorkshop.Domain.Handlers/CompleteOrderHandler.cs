@@ -21,7 +21,7 @@ namespace EsCqrsWorkshop.Domain.Handlers
             {
                 var pizzeria = repository.GetById<Pizzeria>(command.PizzeriaId);
 
-                var ids = pizzeria.CompleteOrder(command.CustomerName, command.PizzaTaste, command.OrderCreatedAt);
+                var ids = pizzeria.CompleteOrder(command.PizzeriaId, command.OrderId);
 
                 repository.CommitChanges();
 

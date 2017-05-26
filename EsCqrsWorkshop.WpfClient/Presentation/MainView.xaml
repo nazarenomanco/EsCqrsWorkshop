@@ -14,8 +14,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Pizzeria" VerticalAlignment="Center"/>
@@ -29,6 +32,38 @@
         <Button Grid.Row="0" Grid.Column="2" Height="20" Width="20" 
                 Content="+" 
                 Command="{markup:AutoCommandBinding Path=CreateNewPizzeria}" />
+
+        <Label Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Content="New Order" VerticalAlignment="Center"/>
+        
+        <DockPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" >
+            <Label Content="Customer:" Width="70" />
+            <TextBox  Height="20" Text="{Binding Path=NewOrderCustomerName}"/>
+        </DockPanel>
+        <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" >
+            <Label Content="Taste:" Width="70" />
+            <TextBox  Height="20" Text="{Binding Path=NewOrderPizzaTaste}"/>
+        </DockPanel>
+
+        <Button Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Height="20" Width="20" 
+                Content="+" 
+                Command="{markup:AutoCommandBinding Path=AddOrder}" />
+
+        <DataGrid Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" 
+                  ItemsSource="{Binding Path=Orders}"
+                  SelectedItem="{Binding Path=SelectedOrder}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Pizzeria" Binding="{Binding PizzeriaName}" Width="Auto" />
+                <DataGridTextColumn Header="Customer" Binding="{Binding CustomerName}" Width="Auto" />
+                <DataGridTextColumn Header="Taste" Binding="{Binding PizzaTaste}" Width="Auto" />
+                <DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt}" Width="Auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" 
+                Content="Complete Order"
+                Command="{markup:AutoCommandBinding Path=CompleteOrder}" />
+        
 
     </Grid>
 </Window>
