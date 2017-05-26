@@ -81,6 +81,14 @@ AS
 SELECT        Id, Name
 FROM            dbo.Pizzerie
 GO
+
+CREATE VIEW [dbo].[OrdersView]
+AS
+SELECT        dbo.Orders.Id, dbo.Orders.CustomerName, dbo.Orders.PizzaTaste, dbo.Orders.PizzeriaId, dbo.Orders.CreatedAt, dbo.Pizzerie.Name AS PizzeriaName
+FROM            dbo.Orders INNER JOIN
+                         dbo.Pizzerie ON dbo.Orders.PizzeriaId = dbo.Pizzerie.Id
+
+GO
 USE [master]
 GO
 ALTER DATABASE [CqrsPizzeria] SET  READ_WRITE 
