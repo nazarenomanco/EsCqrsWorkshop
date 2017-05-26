@@ -13,6 +13,7 @@ namespace EsCqrsWorkshop.Domain.ValueObjects
         public string PizzaTaste { get; set; }
         public Guid PizzeriaId { get; set; }
         public  DateTime CreatedAt { get; set; }
+        public bool Completed { get; set; }
 
         public Order()
         {
@@ -26,6 +27,7 @@ namespace EsCqrsWorkshop.Domain.ValueObjects
             this.CustomerName = customerName;
             this.PizzaTaste = pizzaTaste;
             this.CreatedAt = DateTime.Now;
+            this.Completed = false;
         }
     }
 }

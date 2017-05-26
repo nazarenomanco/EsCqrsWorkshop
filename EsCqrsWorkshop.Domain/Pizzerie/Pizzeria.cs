@@ -66,7 +66,7 @@ namespace EsCqrsWorkshop.Domain.Pizzerie
             if (orderId == null) throw new ArgumentNullException(nameof(orderId));
 
             var order = this.Data.Orders.Single(x => x.Id == orderId);
-            this.Data.Orders.Remove(order);
+            order.Completed = true;
 
             this.RaiseEvent<IOrderCompleted>(e =>
             {

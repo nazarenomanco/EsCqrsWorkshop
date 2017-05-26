@@ -16,6 +16,7 @@ CREATE TABLE [dbo].[Orders](
 	[PizzaTaste] [nvarchar](250) NOT NULL,
 	[PizzeriaId] [uniqueidentifier] NOT NULL,
 	[CreatedAt] [datetime] NOT NULL,
+	[Completed] [bit]
  CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -87,6 +88,7 @@ AS
 SELECT        dbo.Orders.Id, dbo.Orders.CustomerName, dbo.Orders.PizzaTaste, dbo.Orders.PizzeriaId, dbo.Orders.CreatedAt, dbo.Pizzerie.Name AS PizzeriaName
 FROM            dbo.Orders INNER JOIN
                          dbo.Pizzerie ON dbo.Orders.PizzeriaId = dbo.Pizzerie.Id
+WHERE dbo.Orders.Completed = 0
 
 GO
 USE [master]
